@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.aguzman.webapp.ejb.models.Producto;
 import org.aguzman.webapp.ejb.service.ServiceEjb;
 import org.aguzman.webapp.ejb.service.ServiceEjbLocal;
 
@@ -38,8 +39,13 @@ public class EjemploServlet extends HttpServlet {
         }
 
         System.out.println("service si es igual a service2 = " + service.equals(service2));
+
+        Producto p = service.crear(new Producto("uvas"));
+        System.out.printf("Nuevo Producto " + p);
+
         req.setAttribute("saludo", service.saludar("Andres"));
         req.setAttribute("saludo2", service2.saludar("John"));
+        req.setAttribute("listado", service.listar());
         getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 }

@@ -1,3 +1,4 @@
 org\aguzman\webapp\ejb\controllers\EjemploServlet.class
 org\aguzman\webapp\ejb\service\ServiceEjb.class
+org\aguzman\webapp\ejb\models\Producto.class
 org\aguzman\webapp\ejb\service\ServiceEjbLocal.class
